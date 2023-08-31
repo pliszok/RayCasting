@@ -74,7 +74,7 @@ public class Driver implements Runnable, MouseMotionListener {
             g.drawLine((int) line.x1,(int) line.y1,(int) line.x2,(int) line.y2);
         }
 
-        LinkedList<Line2D.Float> rays = calcRays(lines, mouseX, mouseY, 360, 3000);
+        LinkedList<Line2D.Float> rays = calcRays(lines, mouseX, mouseY, 720, 300);
         for (Line2D.Float ray : rays){
             g.drawLine((int) ray.x1,(int) ray.y1,(int) ray.x2,(int) ray.y2);
         }
