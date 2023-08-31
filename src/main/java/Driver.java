@@ -89,8 +89,7 @@ public class Driver implements Runnable, MouseMotionListener {
             double dir = (Math.PI * 2) * ((double) i/resolution);
             float minDist = maxDist;
             for (Line2D.Float line : lines){
-                float dist = getRayCast (x, y, x + (float) Math.cos(dir) * maxDist, y + (float) Math.sin(dir) * maxDist,
-                        line.x1, line.x2, line.y1, line.y2);
+                float dist = getRayCast (x, y, x + (float) Math.cos(dir) * maxDist, y + (float) Math.sin(dir) * maxDist, line.x1, line.x2, line.y1, line.y2);
                 if(dist<minDist && dist>0){
                     minDist=dist;
                 }
@@ -116,8 +115,8 @@ public class Driver implements Runnable, MouseMotionListener {
         s2_y = p3_y - p2_y;
 
         float s, t;
-        s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / (-s2_x * s1_y + s1_x * s2_y);
-        t = (s2_x * (p0_y - p2_y) - s2_y * (p0_x - p2_x)) / (-s2_x * s1_y + s1_x * s2_y);
+        s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / ((-s2_x * s1_y) + (s1_x * s2_y));
+        t = (s2_x * (p0_y - p2_y) - s2_y * (p0_x - p2_x)) / ((-s2_x * s1_y) + (s1_x * s2_y));
 
         if (s >= 0 && s <= 1 && t >= 0 && t <= 1) {
             // Collision detected
