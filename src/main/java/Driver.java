@@ -74,7 +74,7 @@ public class Driver implements Runnable, MouseMotionListener {
             g.drawLine((int) line.x1,(int) line.y1,(int) line.x2,(int) line.y2);
         }
 
-        LinkedList<Line2D.Float> rays = calcRays(lines, mouseX, mouseY, 720, 300);
+        LinkedList<Line2D.Float> rays = calcRays(lines, mouseX, mouseY, 500, 300);
         for (Line2D.Float ray : rays){
             g.drawLine((int) ray.x1,(int) ray.y1,(int) ray.x2,(int) ray.y2);
         }
@@ -89,7 +89,8 @@ public class Driver implements Runnable, MouseMotionListener {
             double dir = (Math.PI * 2) * ((double) i/resolution);
             float minDist = maxDist;
             for (Line2D.Float line : lines){
-                float dist = getRayCast (x, y, x + (float) Math.cos(dir) * maxDist, y + (float) Math.sin(dir) * maxDist, line.x1, line.x2, line.y1, line.y2);
+                float dist = getRayCast (x, y, x + (float) Math.cos(dir) * maxDist, y + (float) Math.sin(dir) * maxDist,
+                        line.x1, line.y1, line.x2, line.y2);
                 if(dist<minDist && dist>0){
                     minDist=dist;
                 }
