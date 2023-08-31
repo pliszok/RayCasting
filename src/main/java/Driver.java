@@ -100,10 +100,6 @@ public class Driver implements Runnable, MouseMotionListener {
         return rays;
     }
 
-    public static void main(String[] args) {
-        new Driver();
-    }
-
     public static float dist(float x1, float y1, float x2, float y2) {
         return (float) Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
     }
@@ -128,5 +124,8 @@ public class Driver implements Runnable, MouseMotionListener {
         }
 
         return -1; // No collision
+    }
+    public static void main(String[] args) {
+        new Driver();
     }
 }
